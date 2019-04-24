@@ -18,6 +18,18 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
      */
     public JFGerenciarProdutos() {
         initComponents();
+        desabilitarCampos();
+    }
+    
+    public void desabilitarCampos(){
+        txtCodigo.setEnabled(false);
+        txtMarca.setEnabled(false);
+        txtNome.setEnabled(false);
+        TbtProdutos.setEnabled(false);
+        txtPreco.setEnabled(false);
+        btnCadastrar.setEnabled(false);
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
     }
 
     /**
@@ -31,6 +43,7 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        BGPesquisa = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -41,8 +54,8 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
         btnVoltarProdutos = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        RdBCod = new javax.swing.JRadioButton();
+        RdBPorNome = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         btnProcurarNome = new javax.swing.JButton();
         txtProcurarNome = new javax.swing.JTextField();
@@ -149,17 +162,19 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
                 .addGap(29, 29, 29))
         );
 
-        jRadioButton1.setText("Cod.Barras");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        BGPesquisa.add(RdBCod);
+        RdBCod.setText("Cod.Barras");
+        RdBCod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                RdBCodActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Por Nome:");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        BGPesquisa.add(RdBPorNome);
+        RdBPorNome.setText("Por Nome:");
+        RdBPorNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                RdBPorNomeActionPerformed(evt);
             }
         });
 
@@ -203,9 +218,9 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jRadioButton1)
+                                        .addComponent(RdBCod)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jRadioButton2)
+                                        .addComponent(RdBPorNome)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtProcurarNome, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel3))
@@ -246,8 +261,8 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton1)
-                        .addComponent(jRadioButton2))
+                        .addComponent(RdBCod)
+                        .addComponent(RdBPorNome))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtProcurarNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnProcurarNome)))
@@ -299,13 +314,13 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
         TbtProdutos.setValueAt(Marca, 0, 3);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void RdBCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RdBCodActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_RdBCodActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void RdBPorNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RdBPorNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_RdBPorNomeActionPerformed
 
     private void btnProcurarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarNomeActionPerformed
         // TODO add your handling code here:
@@ -319,7 +334,18 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarProdutosActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        
+        RdBCod.setEnabled(false);
+        RdBPorNome.setEnabled(false);
+        txtCodigo.setEnabled(true);
+        txtMarca.setEnabled(true);
+        txtNome.setEnabled(true);
+        txtProcurarNome.setEnabled(false);
+        TbtProdutos.setEnabled(true);
+        txtPreco.setEnabled(true);
+        btnCadastrar.setEnabled(true);
+        btnAlterar.setEnabled(true);
+        btnExcluir.setEnabled(true);
+        btnProcurarNome.setEnabled(false);
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
@@ -367,6 +393,9 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup BGPesquisa;
+    private javax.swing.JRadioButton RdBCod;
+    private javax.swing.JRadioButton RdBPorNome;
     private javax.swing.JTable TbtProdutos;
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCadastrar;
@@ -381,8 +410,6 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

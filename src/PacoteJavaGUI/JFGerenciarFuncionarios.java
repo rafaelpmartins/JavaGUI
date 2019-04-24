@@ -25,13 +25,17 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
         TxtDataNascimento.setEnabled(false);
         txtNacionalidade.setEnabled(false);
         TxtNaturalidade.setEnabled(false);
-        TxtEstadoCivil.setEnabled(false);
-        TxtGrauInstrucao.setEnabled(false);
+        CboEstadoCivil.setEnabled(false);
+        CboEscolaridade.setEnabled(false);
         TxtNomeMae.setEnabled(false);
         TxtNomePai.setEnabled(false);
         BtnCadastrar.setEnabled(false);
         BtnAlterar.setEnabled(false);
         BtnExcluir.setEnabled(false);
+        RdBMasculino.setEnabled(false);
+        RdBFeminino.setEnabled(false);
+        txtEndereco.setEnabled(false);
+        TxtRG.setEnabled(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,21 +46,18 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        GBSexo = new javax.swing.ButtonGroup();
         btnVoltarMenu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        TxtCpf = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         TxtNomeCompleto = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        TxtDataNascimento = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtNacionalidade = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         TxtNaturalidade = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        TxtEstadoCivil = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        TxtGrauInstrucao = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         TxtNomeMae = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -67,6 +68,17 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
         BtnAlterar = new javax.swing.JButton();
         BtnConsultar = new javax.swing.JButton();
         BtnExcluir = new javax.swing.JButton();
+        TxtCpf = new javax.swing.JFormattedTextField();
+        TxtDataNascimento = new javax.swing.JFormattedTextField();
+        RdBMasculino = new javax.swing.JRadioButton();
+        RdBFeminino = new javax.swing.JRadioButton();
+        jLabel10 = new javax.swing.JLabel();
+        CboEscolaridade = new javax.swing.JComboBox<>();
+        CboEstadoCivil = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtEndereco = new javax.swing.JTextField();
+        TxtRG = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciar Funcionarios");
@@ -157,7 +169,7 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
                 .addComponent(BtnAlterar)
                 .addGap(18, 18, 18)
                 .addComponent(BtnConsultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
                 .addComponent(BtnExcluir)
                 .addGap(31, 31, 31))
         );
@@ -174,12 +186,46 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
                 .addGap(23, 23, 23))
         );
 
+        try {
+            TxtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            TxtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        GBSexo.add(RdBMasculino);
+        RdBMasculino.setText("Masculino");
+
+        GBSexo.add(RdBFeminino);
+        RdBFeminino.setText("Feminino");
+
+        jLabel10.setText("Sexo:");
+
+        CboEscolaridade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fundamental Completo", "Medio Completo", "Faculdade Completo", "Faculdade Incompleto" }));
+
+        CboEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Divorciado", "Separado", "Viuvo" }));
+
+        jLabel11.setText("Endereço");
+
+        jLabel12.setText("RG");
+
+        try {
+            TxtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -188,31 +234,20 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(272, 272, 272))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(TxtEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(41, 41, 41)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(TxtGrauInstrucao)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel1)
-                                            .addComponent(TxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(39, 39, 39)
+                                            .addComponent(TxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(65, 65, 65)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel2)
                                             .addComponent(TxtNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel3)
-                                            .addComponent(TxtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(42, 42, 42)
+                                            .addComponent(TxtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(76, 76, 76)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel4)
                                             .addComponent(txtNacionalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -220,17 +255,36 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel5)
                                             .addComponent(TxtNaturalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(CboEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(72, 72, 72)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel8)
-                                                .addGap(279, 279, 279))
+                                            .addComponent(jLabel7)
                                             .addGroup(layout.createSequentialGroup()
+                                                .addComponent(CboEscolaridade, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(51, 51, 51)
+                                                .addComponent(jLabel10)
+                                                .addGap(37, 37, 37)
+                                                .addComponent(RdBMasculino)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(RdBFeminino))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(85, 85, 85)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel12)
+                                                .addComponent(TxtRG)))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(TxtNomeMae, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(58, 58, 58)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(TxtNomePai, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel9))))
+                                                .addComponent(jLabel8))
+                                            .addGap(85, 85, 85)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(TxtNomePai, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel9)))))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(20, 20, 20)))
                 .addContainerGap())
@@ -238,45 +292,56 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(TxtNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNacionalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNaturalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(TxtNaturalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtGrauInstrucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(RdBMasculino)
+                    .addComponent(RdBFeminino)
+                    .addComponent(jLabel10)
+                    .addComponent(CboEscolaridade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CboEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtNomeMae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtNomePai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
                 .addComponent(btnVoltarMenu)
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -313,12 +378,16 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
         TxtDataNascimento.setEnabled(true);
         txtNacionalidade.setEnabled(true);
         TxtNaturalidade.setEnabled(true);
-        TxtEstadoCivil.setEnabled(true);
-        TxtGrauInstrucao.setEnabled(true);
+        CboEstadoCivil.setEnabled(true);
+        CboEscolaridade.setEnabled(true);
         TxtNomeMae.setEnabled(true);
         TxtNomePai.setEnabled(true);
         BtnCadastrar.setEnabled(true);
         BtnConsultar.setEnabled(false);
+        RdBMasculino.setEnabled(true);
+        RdBFeminino.setEnabled(true);
+        txtEndereco.setEnabled(true);
+        TxtRG.setEnabled(true);
     }//GEN-LAST:event_BtnNovoActionPerformed
 
     /**
@@ -362,16 +431,23 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
     private javax.swing.JButton BtnConsultar;
     private javax.swing.JButton BtnExcluir;
     private javax.swing.JButton BtnNovo;
-    private javax.swing.JTextField TxtCpf;
-    private javax.swing.JTextField TxtDataNascimento;
-    private javax.swing.JTextField TxtEstadoCivil;
-    private javax.swing.JTextField TxtGrauInstrucao;
+    private javax.swing.JComboBox<String> CboEscolaridade;
+    private javax.swing.JComboBox<String> CboEstadoCivil;
+    private javax.swing.ButtonGroup GBSexo;
+    private javax.swing.JRadioButton RdBFeminino;
+    private javax.swing.JRadioButton RdBMasculino;
+    private javax.swing.JFormattedTextField TxtCpf;
+    private javax.swing.JFormattedTextField TxtDataNascimento;
     private javax.swing.JTextField TxtNaturalidade;
     private javax.swing.JTextField TxtNomeCompleto;
     private javax.swing.JTextField TxtNomeMae;
     private javax.swing.JTextField TxtNomePai;
+    private javax.swing.JFormattedTextField TxtRG;
     private javax.swing.JButton btnVoltarMenu;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -381,6 +457,7 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtNacionalidade;
     // End of variables declaration//GEN-END:variables
 }

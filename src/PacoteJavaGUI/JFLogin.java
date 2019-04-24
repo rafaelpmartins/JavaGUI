@@ -125,10 +125,10 @@ public class JFLogin extends javax.swing.JFrame {
         String nomeUsuario = txtUsuario.getText();
         String senhaUsuario = txtSenha.getText();
 
-        if (nomeUsuario.equals("etecia") && senhaUsuario.equals("etecia")) {
+        if (nomeUsuario.equals(nomeUsuario) && senhaUsuario.equals("etecia")) {
 
-            JOptionPane.showMessageDialog(null, "BEM VINDO!");
-            JFMenuPrincipal abrir = new JFMenuPrincipal();
+            JOptionPane.showMessageDialog(null, "BEM VINDO!  "+nomeUsuario);
+            JFMenuPrincipal abrir = new JFMenuPrincipal(nomeUsuario);
 
             abrir.setVisible(true);
             this.setVisible(false);
