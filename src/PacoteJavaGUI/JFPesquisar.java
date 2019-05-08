@@ -17,6 +17,12 @@ public class JFPesquisar extends javax.swing.JFrame {
     public JFPesquisar() {
         initComponents();
     }
+    
+    public JFPesquisar(int flag){
+        initComponents();
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,6 +33,7 @@ public class JFPesquisar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BGOpcao = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
@@ -43,8 +50,10 @@ public class JFPesquisar extends javax.swing.JFrame {
         jPanel1.setToolTipText("");
         jPanel1.setName(""); // NOI18N
 
+        BGOpcao.add(jRadioButton1);
         jRadioButton1.setText("Código");
 
+        BGOpcao.add(jRadioButton2);
         jRadioButton2.setText("Nome");
 
         jLabel1.setText("Descrição");
@@ -180,6 +189,7 @@ public class JFPesquisar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup BGOpcao;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
