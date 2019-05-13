@@ -5,12 +5,15 @@
  */
 package PacoteJavaGUI;
 
+
+import javax.swing.JOptionPane;
+import static javax.swing.UIManager.getInt;
+
 /**
  *
  * @author LABORATORIO_INFO
  */
 public class JFPesquisar extends javax.swing.JFrame {
-
     /**
      * Creates new form JFPesquisar
      */
@@ -20,9 +23,8 @@ public class JFPesquisar extends javax.swing.JFrame {
     
     public JFPesquisar(int flag){
         initComponents();
-    }
-
-    
+        
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,9 +41,10 @@ public class JFPesquisar extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnChecar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        txtNomePagina = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pesquisar");
@@ -92,7 +95,12 @@ public class JFPesquisar extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("Pesquisar");
+        btnChecar.setText("Checar");
+        btnChecar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChecarActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Limpar");
 
@@ -116,16 +124,15 @@ public class JFPesquisar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNomePagina)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jButton2)))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                            .addComponent(jButton2)
+                            .addComponent(btnChecar))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +140,7 @@ public class JFPesquisar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jButton1)
+                        .addComponent(btnChecar)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
@@ -141,7 +148,9 @@ public class JFPesquisar extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(50, 50, 50)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(txtNomePagina)
+                .addGap(50, 50, 50))
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("");
@@ -152,6 +161,11 @@ public class JFPesquisar extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+    
+    private void btnChecarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChecarActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_btnChecarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,7 +204,7 @@ public class JFPesquisar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BGOpcao;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnChecar;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -198,5 +212,6 @@ public class JFPesquisar extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel txtNomePagina;
     // End of variables declaration//GEN-END:variables
 }

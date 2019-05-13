@@ -53,7 +53,7 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
         btnAlterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
-        btnConsultar = new javax.swing.JButton();
+        btnPesquisar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtPreco = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -121,10 +121,10 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
             }
         });
 
-        btnConsultar.setText("Consultar");
-        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarActionPerformed(evt);
+                btnPesquisarActionPerformed(evt);
             }
         });
 
@@ -140,7 +140,7 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnAlterar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnConsultar)
+                .addComponent(btnPesquisar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
                 .addComponent(btnExcluir)
                 .addGap(25, 25, 25))
@@ -154,7 +154,7 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
                     .addComponent(btnExcluir)
                     .addComponent(btnNovo)
                     .addComponent(btnCadastrar)
-                    .addComponent(btnConsultar))
+                    .addComponent(btnPesquisar))
                 .addGap(29, 29, 29))
         );
 
@@ -311,14 +311,15 @@ public class JFGerenciarProdutos extends javax.swing.JFrame {
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         JOptionPane.showMessageDialog(null, "Deseja Alterar esse Produto?");
     }//GEN-LAST:event_btnAlterarActionPerformed
-int flag = 1;
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        int flag = 1;
         JFPesquisar abrir = new JFPesquisar(flag);
         
         abrir.setVisible(true);
         this.setVisible(false);
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnConsultarActionPerformed
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -361,9 +362,9 @@ int flag = 1;
     private javax.swing.JTable TbtProdutos;
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
+    private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnVoltarProdutos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

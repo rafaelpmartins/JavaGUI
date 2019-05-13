@@ -66,7 +66,7 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
         BtnNovo = new javax.swing.JButton();
         BtnCadastrar = new javax.swing.JButton();
         BtnAlterar = new javax.swing.JButton();
-        BtnConsultar = new javax.swing.JButton();
+        btnPesquisar = new javax.swing.JButton();
         BtnExcluir = new javax.swing.JButton();
         TxtCpf = new javax.swing.JFormattedTextField();
         TxtDataNascimento = new javax.swing.JFormattedTextField();
@@ -150,8 +150,8 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
         BtnAlterar.setMnemonic('a');
         BtnAlterar.setText("Alterar");
 
-        BtnConsultar.setMnemonic('o');
-        BtnConsultar.setText("Consultar");
+        btnPesquisar.setMnemonic('o');
+        btnPesquisar.setText("Pesquisar");
 
         BtnExcluir.setMnemonic('e');
         BtnExcluir.setText("Excluir");
@@ -168,7 +168,7 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(BtnAlterar)
                 .addGap(18, 18, 18)
-                .addComponent(BtnConsultar)
+                .addComponent(btnPesquisar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
                 .addComponent(BtnExcluir)
                 .addGap(31, 31, 31))
@@ -181,7 +181,7 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
                     .addComponent(BtnNovo)
                     .addComponent(BtnCadastrar)
                     .addComponent(BtnAlterar)
-                    .addComponent(BtnConsultar)
+                    .addComponent(btnPesquisar)
                     .addComponent(BtnExcluir))
                 .addGap(23, 23, 23))
         );
@@ -383,7 +383,7 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
         TxtNomeMae.setEnabled(true);
         TxtNomePai.setEnabled(true);
         BtnCadastrar.setEnabled(true);
-        BtnConsultar.setEnabled(false);
+        btnPesquisar.setEnabled(false);
         RdBMasculino.setEnabled(true);
         RdBFeminino.setEnabled(true);
         txtEndereco.setEnabled(true);
@@ -428,7 +428,6 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAlterar;
     private javax.swing.JButton BtnCadastrar;
-    private javax.swing.JButton BtnConsultar;
     private javax.swing.JButton BtnExcluir;
     private javax.swing.JButton BtnNovo;
     private javax.swing.JComboBox<String> CboEscolaridade;
@@ -443,6 +442,7 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
     private javax.swing.JTextField TxtNomeMae;
     private javax.swing.JTextField TxtNomePai;
     private javax.swing.JFormattedTextField TxtRG;
+    private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnVoltarMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
