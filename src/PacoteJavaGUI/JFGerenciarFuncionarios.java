@@ -152,6 +152,11 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
 
         btnPesquisar.setMnemonic('o');
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         BtnExcluir.setMnemonic('e');
         BtnExcluir.setText("Excluir");
@@ -389,6 +394,15 @@ public class JFGerenciarFuncionarios extends javax.swing.JFrame {
         txtEndereco.setEnabled(true);
         TxtRG.setEnabled(true);
     }//GEN-LAST:event_BtnNovoActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+        int flag = 2;
+        JFPesquisar abrir = new JFPesquisar(flag);
+        
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments

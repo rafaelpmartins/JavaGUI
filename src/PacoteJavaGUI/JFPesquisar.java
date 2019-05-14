@@ -6,6 +6,7 @@
 package PacoteJavaGUI;
 
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import javax.swing.JOptionPane;
 import static javax.swing.UIManager.getInt;
 
@@ -23,9 +24,24 @@ public class JFPesquisar extends javax.swing.JFrame {
     
     public JFPesquisar(int flag){
         initComponents();
-        
     } 
-
+    
+    public void Retornar(int flag){
+         if (flag==1){
+            JFGerenciarProdutos abrir = new JFGerenciarProdutos();
+        
+            abrir.setVisible(true);
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Abriu Produtos"); 
+        }
+        if(flag==2){
+            JFGerenciarFuncionarios abrir = new JFGerenciarFuncionarios();
+        
+            abrir.setVisible(true);
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Abriu Funcionarios");
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,7 +56,7 @@ public class JFPesquisar extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDescricao = new javax.swing.JTextField();
         btnChecar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -61,9 +77,9 @@ public class JFPesquisar extends javax.swing.JFrame {
 
         jLabel1.setText("Descrição");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtDescricaoActionPerformed(evt);
             }
         });
 
@@ -79,7 +95,7 @@ public class JFPesquisar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jRadioButton2))
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(161, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -91,7 +107,7 @@ public class JFPesquisar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -158,13 +174,13 @@ public class JFPesquisar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtDescricaoActionPerformed
     
     private void btnChecarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChecarActionPerformed
-        // TODO add your handling code here:
-       
+  // TODO add your handling code here:
+         
     }//GEN-LAST:event_btnChecarActionPerformed
 
     /**
@@ -204,14 +220,14 @@ public class JFPesquisar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BGOpcao;
-    private javax.swing.JButton btnChecar;
+    public javax.swing.JButton btnChecar;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtDescricao;
     private javax.swing.JLabel txtNomePagina;
     // End of variables declaration//GEN-END:variables
 }
