@@ -21,26 +21,44 @@ public class JFPesquisar extends javax.swing.JFrame {
     public JFPesquisar() {
         initComponents();
     }
-    
+    int componente;
     public JFPesquisar(int flag){
         initComponents();
+        componente = flag;
     } 
     
-    public void Retornar(int flag){
-         if (flag==1){
+    
+    public void Retornar(int componente){
+         if (componente==1){
             JFGerenciarProdutos abrir = new JFGerenciarProdutos();
         
             abrir.setVisible(true);
             this.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Abriu Produtos"); 
+            
+            String opcao = ChecarRadio();
+            String descricaoProdutos = txtDescricao.getText();
+            JOptionPane.showMessageDialog(null, "A descriçâo é "+descricaoProdutos +" e você selecionou opção " +opcao); 
         }
-        if(flag==2){
+        if(componente==2){
             JFGerenciarFuncionarios abrir = new JFGerenciarFuncionarios();
         
             abrir.setVisible(true);
             this.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Abriu Funcionarios");
+            
+            String opcao = ChecarRadio();
+            String descricaoProdutos = txtDescricao.getText();
+            JOptionPane.showMessageDialog(null, "A descriçâo é "+descricaoProdutos +" e você selecionou opção " +opcao);
         }
+    }
+    
+    public String ChecarRadio(){
+        String Checagem = null;
+        if (RNome.isSelected()==true) {
+            Checagem = "nome";
+        } if(RCodigo.isSelected()==true){
+            Checagem = "Codigo";
+        }
+        return(Checagem);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,8 +71,8 @@ public class JFPesquisar extends javax.swing.JFrame {
 
         BGOpcao = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        RCodigo = new javax.swing.JRadioButton();
+        RNome = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         txtDescricao = new javax.swing.JTextField();
         btnChecar = new javax.swing.JButton();
@@ -69,11 +87,11 @@ public class JFPesquisar extends javax.swing.JFrame {
         jPanel1.setToolTipText("");
         jPanel1.setName(""); // NOI18N
 
-        BGOpcao.add(jRadioButton1);
-        jRadioButton1.setText("Código");
+        BGOpcao.add(RCodigo);
+        RCodigo.setText("Código");
 
-        BGOpcao.add(jRadioButton2);
-        jRadioButton2.setText("Nome");
+        BGOpcao.add(RNome);
+        RNome.setText("Nome");
 
         jLabel1.setText("Descrição");
 
@@ -91,9 +109,9 @@ public class JFPesquisar extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
+                        .addComponent(RCodigo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton2))
+                        .addComponent(RNome))
                     .addComponent(jLabel1)
                     .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(161, Short.MAX_VALUE))
@@ -102,8 +120,8 @@ public class JFPesquisar extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(RCodigo)
+                    .addComponent(RNome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -180,7 +198,7 @@ public class JFPesquisar extends javax.swing.JFrame {
     
     private void btnChecarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChecarActionPerformed
   // TODO add your handling code here:
-         
+        Retornar(componente);
     }//GEN-LAST:event_btnChecarActionPerformed
 
     /**
@@ -220,13 +238,13 @@ public class JFPesquisar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BGOpcao;
+    private javax.swing.JRadioButton RCodigo;
+    private javax.swing.JRadioButton RNome;
     public javax.swing.JButton btnChecar;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField txtDescricao;
     private javax.swing.JLabel txtNomePagina;
     // End of variables declaration//GEN-END:variables
