@@ -5,7 +5,6 @@
  */
 package PacoteJavaGUI;
 
-
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import javax.swing.JOptionPane;
 import static javax.swing.UIManager.getInt;
@@ -15,6 +14,7 @@ import static javax.swing.UIManager.getInt;
  * @author LABORATORIO_INFO
  */
 public class JFPesquisar extends javax.swing.JFrame {
+
     /**
      * Creates new form JFPesquisar
      */
@@ -22,44 +22,35 @@ public class JFPesquisar extends javax.swing.JFrame {
         initComponents();
     }
     int componente;
-    public JFPesquisar(int flag){
+
+    public JFPesquisar(int flag) {
         initComponents();
         componente = flag;
-    } 
-    
-    
-    public void Retornar(int componente){
-         if (componente==1){
-            JFGerenciarProdutos abrir = new JFGerenciarProdutos();
-        
-            abrir.setVisible(true);
-            this.setVisible(false);
-            
-            String opcao = ChecarRadio();
-            String descricaoProdutos = txtDescricao.getText();
-            JOptionPane.showMessageDialog(null, "A descriçâo é "+descricaoProdutos +" e você selecionou opção " +opcao); 
-        }
-        if(componente==2){
-            JFGerenciarFuncionarios abrir = new JFGerenciarFuncionarios();
-        
-            abrir.setVisible(true);
-            this.setVisible(false);
-            
-            String opcao = ChecarRadio();
-            String descricaoProdutos = txtDescricao.getText();
-            JOptionPane.showMessageDialog(null, "A descriçâo é "+descricaoProdutos +" e você selecionou opção " +opcao);
-        }
     }
-    
-    public String ChecarRadio(){
+
+    public void Retornar(int componente) {
+        if (componente == 1) {
+            JFGerenciarProdutos abrir = new JFGerenciarProdutos();
+            abrir.setVisible(true);
+            this.setVisible(false);
+        }
+        if (componente == 2) {
+            JFGerenciarFuncionarios abrir = new JFGerenciarFuncionarios();
+            abrir.setVisible(true);
+            this.setVisible(false);
+        }
+
         String Checagem = null;
-        if (RNome.isSelected()==true) {
-            Checagem = "nome";
-        } if(RCodigo.isSelected()==true){
+        if (RNome.isSelected() == true) {
+            Checagem = "Nome";
+        }
+        if (RCodigo.isSelected() == true) {
             Checagem = "Codigo";
         }
-        return(Checagem);
+        String descricaoProdutos = txtDescricao.getText();
+        JOptionPane.showMessageDialog(null, "A descrição é " + descricaoProdutos + " e você selecionou opção " + Checagem);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -195,9 +186,9 @@ public class JFPesquisar extends javax.swing.JFrame {
     private void txtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescricaoActionPerformed
-    
+
     private void btnChecarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChecarActionPerformed
-  // TODO add your handling code here:
+        // TODO add your handling code here:
         Retornar(componente);
     }//GEN-LAST:event_btnChecarActionPerformed
 
