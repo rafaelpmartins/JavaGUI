@@ -9,24 +9,24 @@ import com.mysql.jdbc.Connection;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 import java.util.*;
-
 /**
  *
  * @author LABORATORIO_INFO
  */
 public class JFPesquisar extends javax.swing.JFrame {
-
     /**
      * Creates new form JFPesquisar
      */
     public JFPesquisar() {
         initComponents();
+        txtDescricao.setEditable(false);
     }
     int componente;
 
     public JFPesquisar(int flag) {
         initComponents();
         componente = flag;
+        txtDescricao.setEditable(false);
     }
 
     public void Retornar(int componente) {
@@ -40,18 +40,7 @@ public class JFPesquisar extends javax.swing.JFrame {
             abrir.setVisible(true);
             this.setVisible(false);
         }
-
-        String Checagem = null;
-        if (RNome.isSelected() == true) {
-            Checagem = "Nome";
-        }
-        if (RCodigo.isSelected() == true) {
-            Checagem = "Codigo";
-        }
-        String descricaoProdutos = txtDescricao.getText();
-        JOptionPane.showMessageDialog(null, "A descrição é " + descricaoProdutos + " e você selecionou opção " + Checagem);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,9 +73,19 @@ public class JFPesquisar extends javax.swing.JFrame {
 
         BGOpcao.add(RCodigo);
         RCodigo.setText("Código");
+        RCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RCodigoActionPerformed(evt);
+            }
+        });
 
         BGOpcao.add(RNome);
         RNome.setText("Nome");
+        RNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RNomeActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Descrição");
 
@@ -145,7 +144,7 @@ public class JFPesquisar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cod.Barras", "Nome", "Preço", "Marca"
+                "Cod.Produto", "Nome", "Preço", "Marca"
             }
         ) {
             Class[] types = new Class [] {
@@ -248,29 +247,31 @@ public class JFPesquisar extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
+        if(RCodigo.isSelected() == false && RNome.isSelected() == false){
+            JOptionPane.showMessageDialog(null, "Por favor Selecione uma opção");
+        }else{
+            
         Connection con = (Connection) Conexao.abrirConexao();
-        ProdutoDAO pd = new ProdutoDAO(con);
-        
+        ProdutoDAO pd = new ProdutoDAO(con);    
+            
         List<ProdutoBean> listaProduto = new ArrayList<ProdutoBean>();
         listaProduto = pd.listar();
-        
         DefaultTableModel tbm = (DefaultTableModel) tbConsulta.getModel();
-        
         for (int i = tbm.getRowCount() - 1; i >= 0; i--) {
             tbm.removeRow(i);
         }
-        
         int i = 0;
-        
-        for (ProdutoBean cb : listaProduto) {
+        for (ProdutoBean pb : listaProduto) {
             tbm.addRow(new String[1]);
-            tbConsulta.setValueAt(cb.getCodigo(), i, 0);
-            tbConsulta.setValueAt(cb.getNome(), i, 1);
-            tbConsulta.setValueAt(cb.getPreco(), i, 2);
-            tbConsulta.setValueAt(cb.getMarca(), i, 3);
+            tbConsulta.setValueAt(pb.getCodigo(), i, 0);
+            tbConsulta.setValueAt(pb.getNome(), i, 1);
+            tbConsulta.setValueAt(pb.getPreco(), i, 2);
+            tbConsulta.setValueAt(pb.getMarca(), i, 3);
             i++;
         }
         Conexao.fecharConexao(con);
+        
+        };
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -301,6 +302,22 @@ public class JFPesquisar extends javax.swing.JFrame {
         abrirProdutos.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_tbConsultaMouseClicked
+
+    private void RCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RCodigoActionPerformed
+        // TODO add your handling code here:
+        if(RCodigo.isSelected() == true){
+            txtDescricao.grabFocus();
+            txtDescricao.setEditable(true);
+        } 
+    }//GEN-LAST:event_RCodigoActionPerformed
+
+    private void RNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RNomeActionPerformed
+        // TODO add your handling code here:
+        if(RNome.isSelected() == true){
+            txtDescricao.grabFocus();
+            txtDescricao.setEditable(true);
+        } 
+    }//GEN-LAST:event_RNomeActionPerformed
 
     /**
      * @param args the command line arguments

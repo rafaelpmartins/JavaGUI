@@ -1,6 +1,4 @@
-
 package PacoteJavaGUI;
-
 
 public class ProdutoBean {
     private String Codigo;
